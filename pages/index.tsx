@@ -5,10 +5,14 @@ import Image from 'next/image'
 import { useEffect, useState } from 'react'
 import { BoxTasks } from '../components'
 
-const Home: NextPage = () => {
+interface HomeProps {
+  apiUrl: string;
+}
 
-  const api = new TodoistApi(process.env.NEXT_PUBLIC_TODOIST_URL as string)
-  const [projects, setProjects] = useState<any[]>([]);
+function Home ({apiUrl}: HomeProps) {
+
+  const api = new TodoistApi(apiUrl)
+  // const [projects, setProjects] = useState<any[]>([]);
   const [tasks, setTasks] = useState<any[]>([]);
 
   useEffect(() => {
@@ -19,12 +23,12 @@ const Home: NextPage = () => {
         })
         .catch((error) => console.log(error))
     
-    api.getProjects()
-      .then((projects) => {
-        // console.log(projects);
-        setProjects(projects);
-      })
-      .catch((error) => console.log(error))
+    // api.getProjects()
+    //   .then((projects) => {
+    //     // console.log(projects);
+    //     setProjects(projects);
+    //   })
+    //   .catch((error) => console.log(error))
   }, [])
   return (
     <div className="flex min-h-screen flex-col items-center justify-center py-2">
@@ -47,6 +51,16 @@ const Home: NextPage = () => {
       </main>
     </div>
   )
+}
+
+export async function getStaticProps() {
+  const apiUrl = process.env.TODOIST_URL as string;
+
+  return {
+    props: {
+      apiUrl,
+    }
+  }
 }
 
 export default Home

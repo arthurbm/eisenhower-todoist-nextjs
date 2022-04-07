@@ -7,7 +7,7 @@ import { BoxTasks } from '../components'
 
 const Home: NextPage = () => {
 
-  const api = new TodoistApi('539ab1745e09c06795ea49006c812543c595d5b3')
+  const api = new TodoistApi(process.env.NEXT_PUBLIC_TODOIST_URL as string)
   const [projects, setProjects] = useState<any[]>([]);
   const [tasks, setTasks] = useState<any[]>([]);
 

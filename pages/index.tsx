@@ -37,19 +37,15 @@ function Home ({apiUrl}: HomeProps) {
 
       <h1 className="text-4xl font-bold">Todoist Eisenhower</h1>
 
-      <h3>Hello</h3>
-      <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
+      <main className="mt-6 flex max-w-4xl flex-wrap items-center justify-around sm:w-full">
+        <BoxTasks tasks={tasks} priority={1} color="red" />
+
+        <BoxTasks tasks={tasks} priority={2} color="yellow"/>
+
+        <BoxTasks tasks={tasks} priority={3} color="blue" />
         
-        <div className="mt-6 flex max-w-4xl flex-wrap items-center justify-around sm:w-full">
-          <BoxTasks tasks={tasks} priority={1} />
+        <BoxTasks tasks={tasks} priority={4} color="gray" />
 
-          <BoxTasks tasks={tasks} priority={2} />
-
-          <BoxTasks tasks={tasks} priority={3} />
-          
-          <BoxTasks tasks={tasks} priority={4} />
-
-        </div>
       </main>
     </div>
   )

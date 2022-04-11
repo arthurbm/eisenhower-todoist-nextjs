@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import classnames from 'classnames';
 
 // import { Container } from './styles';
 
@@ -24,7 +25,12 @@ function BoxTasks ({tasks, priority, color}: BoxTasksProps) {
 
   return (
     <div
-      className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-red-600"
+      className={classnames("mt-6 w-96 rounded-xl border p-6 text-lef", {
+        "hover:text-red-600": color === "red",
+        "hover:text-blue-600": color === "blue",
+        "hover:text-yellow-600": color === "yellow",
+        "hover:text-gray-600": color === "gray"
+      })}
     >
       <h3 className="text-2xl font-bold">Prioridade {priority}</h3>
       <p className="mt-4 text-xl">

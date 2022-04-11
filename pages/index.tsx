@@ -18,7 +18,6 @@ function Home ({apiUrl}: HomeProps) {
   useEffect(() => {
     api.getTasks()
         .then((tasks) => {
-          // console.log(tasks);
           setTasks(tasks);
         })
         .catch((error) => console.log(error))
@@ -36,6 +35,9 @@ function Home ({apiUrl}: HomeProps) {
         <title>Todoist Eisenhower</title>
       </Head>
 
+      <h1 className="text-4xl font-bold">Todoist Eisenhower</h1>
+
+      <h3>Hello</h3>
       <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
         
         <div className="mt-6 flex max-w-4xl flex-wrap items-center justify-around sm:w-full">

@@ -29,6 +29,7 @@ function BoxTasks ({tasks, priority, color}: BoxTasksProps) {
       setPriorityText('Delegue')
     } else if (priority === 4) {
       setPriorityText('Exclua')
+      console.log(todayDate)
     }
 
     setTasksFiltered(tasks?.filter((task) => task.due).filter((task) => task.priority === (5 - priority) && (task.due.date == todayDate)));
@@ -44,13 +45,13 @@ function BoxTasks ({tasks, priority, color}: BoxTasksProps) {
       })}
     >
       <h3 className="text-2xl font-bold ">{priorityText} (P{priority})</h3>
-      <p className="mt-4 text-xl">
+      <div className="mt-4 text-xl">
         {tasksFiltered?.map((task) => (
           <div key={task.id}>
             <p>- {task.content}</p>
           </div>
         ))}
-      </p>
+      </div>
     </div>
   );
 }

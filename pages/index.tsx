@@ -31,6 +31,11 @@ function Home ({apiUrl}: HomeProps) {
   }, [])
   return (
     <>
+      <Head>
+        <title>Todoist Eisenhower</title>
+        <link rel="shortcut icon" href="/todoisticon.ico" />
+      </Head>
+
       <div className="flex min-h-screen flex-col items-center justify-center py-2 bg-gray-900">
 
         <h1 className="text-4xl text-gray-100 font-bold">Todoist Eisenhower</h1>

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import classnames from 'classnames';
+import { LoadingOutlined } from '@ant-design/icons';
 
 interface BoxTasksProps {
   tasks: any[];
@@ -32,6 +33,7 @@ function BoxTasks ({tasks, priority, color}: BoxTasksProps) {
       console.log(todayDate)
     }
 
+    // setTimeout(() => {alert('hello')} , 5000);
     setTasksFiltered(tasks?.filter((task) => task.due).filter((task) => task.priority === (5 - priority) && (task.due.date == todayDate)));
   }, [setPriorityText, setTasksFiltered, priority, tasks, todayDate])
 
@@ -46,11 +48,15 @@ function BoxTasks ({tasks, priority, color}: BoxTasksProps) {
     >
       <h3 className="text-2xl font-bold ">{priorityText} (P{priority})</h3>
       <div className="mt-4 text-xl">
-        {tasksFiltered?.map((task) => (
-          <div key={task.id}>
-            <p>- {task.content}</p>
-          </div>
-        ))}
+        {tasksFiltered ? 
+          tasksFiltered.map((task) => (
+            <div key={task.id}>
+              <p>- {task.content}</p>
+            </div>
+          ))
+        :
+          <LoadingOutlined style={{ color: 'white', fontSize: '2rem' }} />
+        }
       </div>
     </div>
   );

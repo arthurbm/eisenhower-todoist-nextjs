@@ -49,8 +49,9 @@ function Home ({apiUrl}: HomeProps) {
           <BoxTasks tasks={tasks} priority={3} color="blue" />
           
           <BoxTasks tasks={tasks} priority={4} color="gray" />
-
+          
         </main>
+        
       </div>
     </>
   )

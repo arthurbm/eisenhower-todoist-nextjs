@@ -30,24 +30,27 @@ function Home ({apiUrl}: HomeProps) {
     //   .catch((error) => console.log(error))
   }, [])
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center py-2">
+    <>
       <Head>
         <title>Todoist Eisenhower</title>
       </Head>
+      <div className="flex min-h-screen flex-col items-center justify-center py-2 bg-gray-900">
 
-      <h1 className="text-4xl font-bold">Todoist Eisenhower</h1>
+        <h1 className="text-4xl text-gray-100 font-bold">Todoist Eisenhower</h1>
+        <h1 className="text-2xl text-gray-100 font-bold mt-6">+ ---------- IMPORTANTE ---------- -</h1>
 
-      <main className="mt-6 flex max-w-4xl flex-wrap items-center justify-around sm:w-full">
-        <BoxTasks tasks={tasks} priority={1} color="red" />
+        <main className="mt-6 flex max-w-4xl flex-wrap items-center justify-around sm:w-full">
+          <BoxTasks tasks={tasks} priority={1} color="red" />
 
-        <BoxTasks tasks={tasks} priority={2} color="yellow"/>
+          <BoxTasks tasks={tasks} priority={2} color="yellow"/>
 
-        <BoxTasks tasks={tasks} priority={3} color="blue" />
-        
-        <BoxTasks tasks={tasks} priority={4} color="gray" />
+          <BoxTasks tasks={tasks} priority={3} color="blue" />
+          
+          <BoxTasks tasks={tasks} priority={4} color="gray" />
 
-      </main>
-    </div>
+        </main>
+      </div>
+    </>
   )
 }
 
